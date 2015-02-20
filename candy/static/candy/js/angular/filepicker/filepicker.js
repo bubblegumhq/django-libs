@@ -36,7 +36,7 @@ mod.service('FilePicker', ['$q',
 						}
 					}
 				);
-				return deferred.promise();
+				return deferred.promise;
 			};
 
 			FilePickerService.pick = function (callback) {
