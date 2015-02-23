@@ -15,6 +15,17 @@ class FilePicker(object):
         self.KEY = settings.FILEPICKER_API_KEY
         self.API = "https://www.filepicker.io/api/store/S3"
 
+    def getMimeType(self, url):
+        payload = {
+            'key': self.KEY,
+            'width':'true',
+            'height':'true',
+        }
+        url = url + "/metadata"
+        r = requests.get(url, params=payload)
+        d = r.json()
+        return d
+
 
     def getSize(self, url):
         payload = {
