@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import json
 import locale
 
 from django.template import Library
@@ -21,3 +22,7 @@ def active(request, pattern):
     if re.search(pattern, request.path):
         return 'active'
     return ''
+
+@register.simple_tag
+def as_json(obj):
+    return json.dumps(obj, indent=2)
