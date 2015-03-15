@@ -1,3 +1,4 @@
+from compressor.filters import CallbackOutputFilter
 from compressor.filters.css_default import CssAbsoluteFilter
 from compressor.utils import staticfiles
 
@@ -8,3 +9,9 @@ class CustomCssAbsoluteFilter(CssAbsoluteFilter):
         # if settings.DEBUG and basename and staticfiles.finders:
         if basename and staticfiles.finders:
             return staticfiles.finders.find(basename)
+
+def echo(str):
+    return str
+
+class EchoFilter(CallbackOutputFilter):
+    callback = "mrhotel.compress_filters.echo"
