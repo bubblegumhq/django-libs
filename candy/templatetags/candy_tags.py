@@ -26,3 +26,8 @@ def active(request, pattern):
 @register.simple_tag
 def as_json(obj):
     return json.dumps(obj, indent=2)
+
+def jsonify(object):
+    return json.dumps(object, indent=2)
+
+register.filter('jsonify', jsonify)
