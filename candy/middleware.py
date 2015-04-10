@@ -86,3 +86,6 @@ class CloudFlareCountryStoreMiddleware(object):
                 setattr(request.user, settings.USER_COUNTRY_FIELD, country)
                 request.user.save()
 
+class DisableCSRF(object):
+    def process_request(self, request):
+        setattr(request, '_dont_enforce_csrf_checks', True)
