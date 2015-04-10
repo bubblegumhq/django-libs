@@ -14,4 +14,4 @@ def echo(str):
     return str
 
 class EchoFilter(CallbackOutputFilter):
-    callback = "mrhotel.compress_filters.echo"
+    callback = "candy.compress_filters.echo"
