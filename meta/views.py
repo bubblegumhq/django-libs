@@ -27,7 +27,7 @@ class Meta(object):
 
     def __init__(self, **kwargs):
         self.use_sites = kwargs.get('use_sites', USE_SITES)
-        self.title = kwargs.get('title')  or DEFAULTS.get("title")
+        self.title = kwargs.get('title') or settings.META_DEFAULTS.get("title")
         self.description = kwargs.get('description')  or DEFAULTS.get("description")
         self.extra_props = kwargs.get('extra_props')
         self.extra_custom_props = kwargs.get('extra_custom_props')
