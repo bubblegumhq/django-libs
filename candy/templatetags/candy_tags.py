@@ -41,3 +41,10 @@ def jsonify_qs(object):
     return mark_safe(serialize('json', [object]))
 register.filter('jsonify_qs', jsonify_qs)
 
+def resize_image(url, size):
+    if "filepicker" in url:
+        width, height = size.split("x")
+        return url + "/convert?width=%s&height=%s&fit=crop" % (width, height)
+    return url
+register.filter('resize_image', resize_image)
+
