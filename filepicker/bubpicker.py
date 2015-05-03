@@ -40,7 +40,7 @@ class FilePicker(object):
 
 
     def createFilePickerFromURL(self, url):
-        if url and IS_IMAGE.match(url):
+        if url:
             LOGGER.info("Uploading file to filepicker %s" % url)
             filename = url.split('/')[-1]
             headers = {
