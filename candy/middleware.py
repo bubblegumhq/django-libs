@@ -89,3 +89,8 @@ class CloudFlareCountryStoreMiddleware(object):
 class DisableCSRF(object):
     def process_request(self, request):
         setattr(request, '_dont_enforce_csrf_checks', True)
+
+class IgnoreCSRFAPIMiddleware(object):
+    def process_request(self, request):
+        if "api/" in request.path:
+            setattr(request, '_dont_enforce_csrf_checks', True)
